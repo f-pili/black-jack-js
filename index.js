@@ -32,6 +32,8 @@ function startGame() {
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
     sum = firstCard + secondCard
+    player.chips -= 10
+    playerEl.textContent = player.name + ": $" + player.chips
     renderGame()
 }
 
@@ -46,6 +48,8 @@ function renderGame() {
         message = "Do you want to draw a new card?"
     } else if (sum === 21) {
         message = "You've got Blackjack!"
+        player.chips += 50
+        playerEl.textContent = player.name + ": $" + player.chips
         hasBlackJack = true
     } else {
         message = "You're out of the game!"
